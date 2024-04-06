@@ -1,16 +1,22 @@
 import creational.abstract_factory.FabricaDeMunecasPricesa
 import creational.abstract_factory.FabricaDeRobotsEspacio
+import creational.builder.StandardCarBuilder
 import creational.factory_method.SimplePizzaFactory
 import creational.factory_method.TypePizza
 
-fun main(args: Array<String>) {
-    val fabricaRobots = FabricaDeRobotsEspacio()
-    val fabricaMunecas = FabricaDeMunecasPricesa()
+fun main() {
+    val car = StandardCarBuilder()
+        .setBrand("Toyota")
+        .setModel("Corolla")
+        .setGPS(true)
+        .build()
 
-    val robotEspacio = fabricaRobots.crearRobot()
-    val munecaPrincesa = fabricaMunecas.crearMuneca()
+    val car2 = StandardCarBuilder()
+        .setBrand("Toyota")
+        .setModel("Corolla")
+        .setGPS(false)
+        .build()
 
-    robotEspacio.describir()
-    robotEspacio.volar()
-    munecaPrincesa.describir()
+    println(car)
+    println(car2)
 }
